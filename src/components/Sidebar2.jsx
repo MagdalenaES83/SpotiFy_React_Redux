@@ -15,14 +15,14 @@ const Sidebar2 = () => {
           <li className="nav-item mb-4 text-white">
             <img
               className="pt-3"
-              //   src={SpotifyLogo}
+              src="/logo/Spotify_Logo.png"
               height="60px"
               width="auto"
               alt=""
               srcset=""
             />
           </li>
-          <Link to="/Home">
+          <Link to="/">
             <li className="nav-item text-white activehome ">
               <p>
                 <IoMdHome className="react-icon" />
