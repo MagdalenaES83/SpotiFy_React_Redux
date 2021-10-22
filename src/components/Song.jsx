@@ -57,9 +57,9 @@ const Song = ({
       </small>
       {/* <AiFillHeart onClick={() => addSongsToLiked(track)} /> */}
       {isSongLiked ? (
-        <AiFillHeart onClick={toggleLiked} />
+        <AiFillHeart onClick={toggleLiked} style={{ color: "white" }} />
       ) : (
-        <AiOutlineHeart onClick={toggleLiked} />
+        <AiOutlineHeart onClick={toggleLiked} style={{ color: "white" }} />
       )}
     </div>
   );
