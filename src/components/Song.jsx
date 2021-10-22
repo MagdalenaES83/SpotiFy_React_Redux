@@ -1,7 +1,11 @@
 import React from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { connect } from "react-redux";
-import { removeSongsFromLikedAction, addSongsToLikedAction } from "../actions";
+import {
+  removeSongsFromLikedAction,
+  addSongsToLikedAction,
+  addSongToCurrentlyPlayingAction,
+} from "../actions";
 
 const mapStateToProps = (state) => ({
   likedSongs: state.songs.likedSongs,
@@ -16,34 +20,47 @@ const mapDispatchToProps = (dispatch) => ({
   removeSongsFromLiked: (songObj) => {
     dispatch(removeSongsFromLikedAction(songObj));
   },
+  addSongToCurrentlyPlaying: (songObj) => {
+    dispatch(addSongToCurrentlyPlayingAction(songObj));
+  },
 });
 
-const Song = ({ track, likedSongs, addSongsToLiked, removeSongsFromLiked }) => {
-  // const isSongLiked = likedSongs.includes(track);
+const Song = ({
+  track,
+  likedSongs,
+  addSongsToLiked,
+  removeSongsFromLiked,
+  addSongToCurrentlyPlaying,
+}) => {
+  const isSongLiked = likedSongs.includes(track);
   // console.log(isSongLiked);
 
-  // const toggleLiked = () => {
-  //   isSongLiked ? addSongsToLiked(track) : removeSongsFromLiked(track);
-  // };
+  const toggleLiked = () => {
+    isSongLiked ? removeSongsFromLiked(track) : addSongsToLiked(track);
+  };
 
   return (
     <div className="py-3 trackHover">
-      <span className="card-title trackHover px-3" style={{ color: "white" }}>
+      <span
+        className="card-title trackHover px-3"
+        style={{ color: "white" }}
+        onClick={() => addSongToCurrentlyPlaying(track)}
+      >
         {track.title}
       </span>
-
+      {/* {console.log(track)} */}
       <small className="duration" style={{ color: "white" }}>
         {Math.floor(parseInt(track.duration) / 60)}:
         {parseInt(track.duration) % 60 < 10
           ? "0" + (parseInt(track.duration) % 60)
           : parseInt(track.duration) % 60}
       </small>
-      <AiFillHeart onClick={() => addSongsToLiked(track)} />
-      {/* {isSongLiked ? (
-        <AiFillHeart onClick={addSongsToLiked} />
+      {/* <AiFillHeart onClick={() => addSongsToLiked(track)} /> */}
+      {isSongLiked ? (
+        <AiFillHeart onClick={toggleLiked} />
       ) : (
         <AiOutlineHeart onClick={toggleLiked} />
-      )} */}
+      )}
     </div>
   );
 };

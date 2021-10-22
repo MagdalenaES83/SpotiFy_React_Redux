@@ -1,12 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import Player from "./components/Player";
-import Sidebar from "./components/Sidebar";
+import Player2 from "./components/Player2";
+import Sidebar2 from "./components/Sidebar2";
 import Home from "./components/Home";
 import { Row } from "react-bootstrap";
 import Artist from "./components/Artist";
 import Album from "./components/Album";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => ({
+  currentlyPlaying: state.currentlyPlaying.selectedSong,
+});
 
 let headers = new Headers({
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
@@ -47,7 +52,8 @@ class App extends React.Component {
       <Router>
         <div className="container-fluid">
           <Row>
-            <Sidebar search={this.search} />
+            {/* <Sidebar search={this.search} /> */}
+            <Sidebar2 />
             <Route
               path="/"
               exact
@@ -57,10 +63,14 @@ class App extends React.Component {
             <Route path="/album/:id" component={Album} />
           </Row>
         </div>
-        <Player />
+        {this.props.currentlyPlaying !== undefined ? (
+          <Player2 currentlyPlaying={this.props.currentlyPlaying} />
+        ) : (
+          ""
+        )}
       </Router>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

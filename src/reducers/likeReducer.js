@@ -4,28 +4,18 @@ import {
 } from "../actions";
 import { initialState } from "../store";
 
-export const likeReducer = (state = initialState, action) => {
+export const likeReducer = (state = initialState.songs, action) => {
   switch (action.type) {
     case ADD_SONGS_TO_LIKED_ARRAY:
       return {
         ...state,
-        songs:{ 
-        
-          ...state.songs,
-likedSongs: state.songs.likedSongs.concat(action.payload)
-
-
-      //   }
-      //   // likedSongs: state.likedSongs.includes(action.payload)
-      //   //   ? [...state.likedSongs]
-      //   //   : [...state.likedSongs, action.payload],
-      //   likedSongs: [...state.likedSongs, action.payload],
-       }}
+        likedSongs: state.likedSongs.concat(action.payload),
+      };
     case REMOVE_SONGS_FROM_LIKED_ARRAY:
+      //   console.log(action.payload);
       return {
-        ...state,
         likedSongs: state.likedSongs.filter(
-          (song, index) => index !== action.payload
+          (song, index) => song.id !== action.payload.id
         ),
       };
     default:

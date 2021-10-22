@@ -230,3 +230,193 @@ ul {
 .mainPage img {
   width: 200px;
 }
+
+.footer-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: transparent;
+  color: white;
+  border: 0;
+  font-size: 25px;
+}
+
+.footer-icon-play {
+  font-size: 40px;
+}
+
+#playbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(31, 27, 27);
+  height: 110px;
+  z-index: 2;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#playbar .leftFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#playbar .middleFooter .col-12 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#playbar img {
+  height: 70px;
+  width: 70px;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  top: 10px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+#playbar .card {
+  background-color: #181818;
+}
+
+#playbar .card-text {
+  color: lightgrey;
+  font-size: 15px;
+}
+
+#footer-song {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#footer-artist {
+  font-size: 11px;
+}
+
+.footer-container .col-4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.song-minute-duration {
+  color: lightgrey;
+  font-size: 14px;
+}
+
+#volume-bar {
+  color: white;
+  margin-top: 20px;
+  width: 120px;
+  height: 7px;
+}
+
+progress {
+  margin-top: 10px;
+  display: inline-block;
+  width: 71%;
+  max-height: 5px;
+  left: 490px;
+  top: 60px;
+  background: rgb(255, 255, 255);
+  border-radius: 60px;
+}
+
+.sidebar-container a {
+  color: rgb(165, 165, 165);
+}
+
+.sidebar-container a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar-container {
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 700;
+  /* line-height: 1.2; */
+}
+.sidebar {
+  padding: 10px;
+  height: 80%;
+  width: 300px;
+}
+
+.sidebar ul li {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.sidebar ul li p {
+  padding-bottom: 4px;
+}
+
+#scroll {
+  background-color: rgb(41, 32, 32);
+}
+
+#scrollbar-list {
+  font-weight: 600;
+  overflow: scroll;
+  height: 60%;
+  scrollbar-color: black;
+  scrollbar-width: thin;
+}
+
+#search-icon {
+  position: relative;
+  left: 5%;
+  bottom: 30px;
+  fill: white;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.react-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.activehome {
+  background-color: rgba(46, 41, 41, 0.945);
+  width: 100%;
+  border-radius: 5px;
+}
+
+#install-app {
+  position: fixed;
+  margin-bottom: 110px;
+  /* padding-bottom: 10px; */
+  left: 0;
+  width: 260px;
+  height: 40px;
+  bottom: 0;
+  z-index: 3;
+  background-color: black;
+}
+
+#install-app a {
+  padding-bottom: 15px;
+  background-color: black;
+}
