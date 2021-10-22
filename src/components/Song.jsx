@@ -13,9 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
   addSongsToLiked: (songObj) => {
     dispatch(addSongsToLikedAction(songObj));
   },
-  // removeSongsFromLiked: (songObj) => {
-  //   dispatch(removeSongsFromLikedAction(songObj));
-  // },
+  removeSongsFromLiked: (songObj) => {
+    dispatch(removeSongsFromLikedAction(songObj));
+  },
 });
 
 const Song = ({ track, likedSongs, addSongsToLiked, removeSongsFromLiked }) => {
