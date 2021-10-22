@@ -242,6 +242,11 @@ ul {
 
 .footer-icon-play {
   font-size: 40px;
+  cursor: pointer;
+}
+
+.footer-icon-play:hover {
+  transform: scale(1.1);
 }
 
 #playbar {

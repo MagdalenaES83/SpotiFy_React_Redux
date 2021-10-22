@@ -6,8 +6,17 @@ import { VscLibrary } from "react-icons/vsc";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { CgArrowDownO } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Sidebar2 = () => {
+  const [searchbarVisible, setSearchbarVisible] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+
+  const unveilSearch = () => {
+    setSearchbarVisible(true);
+    console.log("search unveiled");
+  };
+
   return (
     <div className="sidebar-container" id="sidebar">
       <div className="sidebar">
@@ -44,14 +53,45 @@ const Sidebar2 = () => {
               </a>
             </p>
           </li> */}
-          <a href="#Details">
-            <li className="nav-item text-white">
-              <p>
-                <BsSearch className="react-icon" />
-                Search
-              </p>
-            </li>
-          </a>
+          <div onClick={unveilSearch}>
+            {searchbarVisible ? (
+              <div className="input-group mt-3">
+                <input
+                  type="text"
+                  className="form-control mb-2"
+                  id="searchField"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                  onChange={(event) => {
+                    setSearchInput(event.currentTarget.value);
+                    console.log(searchInput);
+                  }}
+                />
+                <div
+                  className="input-group-append"
+                  style={{ marginBottom: "4%" }}
+                >
+                  <button
+                    className="btn btn-outline-secondary btn-sm"
+                    type="button"
+                    id="button-addon1"
+                    onClick={() => this.props.search(this.state.searchInput)}
+                  >
+                    GO
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <li className="nav-item text-white">
+                <p>
+                  <BsSearch className="react-icon" />
+                  Search
+                </p>
+              </li>
+            )}
+          </div>
+
           <a href="#Details">
             <li className="nav-item text-white mb-4">
               <p>

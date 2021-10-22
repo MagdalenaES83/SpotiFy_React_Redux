@@ -17,12 +17,18 @@ import { HiVolumeUp } from "react-icons/hi";
 // });
 
 const Player2 = ({ currentlyPlaying }) => {
+  const handlePlay = () => {
+    console.log("Play");
+    let audio = document.getElementById("audioFile");
+    audio.play();
+  };
+
   return (
     <Container fluid id="playbar">
       <Row>
         <Col className="col-3 leftFooter d-none d-sm-none d-md-flex">
           <img
-            src={currentlyPlaying.artist && currentlyPlaying.artist.md5_image}
+            src={currentlyPlaying.artist && currentlyPlaying.md5_image}
             alt=""
           />
 
@@ -52,9 +58,12 @@ const Player2 = ({ currentlyPlaying }) => {
                 <AiFillCaretLeft />
               </a>
 
-              <a href="#footer" className="footer-icon footer-icon-play">
-                <AiFillPlayCircle />
-              </a>
+              {/* <a href="#footer" className="footer-icon footer-icon-play" > */}
+              <AiFillPlayCircle
+                className="footer-icon footer-icon-play"
+                onClick={handlePlay}
+              />
+              {/* </a> */}
 
               <a href="#footer" className="footer-icon">
                 <AiFillCaretRight />
@@ -73,6 +82,7 @@ const Player2 = ({ currentlyPlaying }) => {
                 value="0"
                 fill="white"
               ></progress>
+              <audio id="audioFile" src={currentlyPlaying.preview}></audio>
               <p className="mx-2 my-2  song-minute-duration">2:34</p>
             </div>
           </div>
