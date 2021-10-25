@@ -8,7 +8,7 @@ import { CgArrowDownO } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Sidebar2 = () => {
+const Sidebar2 = ({ search }) => {
   const [searchbarVisible, setSearchbarVisible] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
@@ -76,7 +76,7 @@ const Sidebar2 = () => {
                     className="btn btn-outline-secondary btn-sm"
                     type="button"
                     id="button-addon1"
-                    onClick={() => this.props.search(this.state.searchInput)}
+                    onClick={() => search(searchInput)}
                   >
                     GO
                   </button>

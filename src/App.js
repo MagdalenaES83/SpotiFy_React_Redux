@@ -53,7 +53,7 @@ class App extends React.Component {
         <div className="container-fluid">
           <Row>
             {/* <Sidebar search={this.search} /> */}
-            <Sidebar2 />
+            <Sidebar2 search={this.search}/>
             <Route
               path="/"
               exact
