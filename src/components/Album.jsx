@@ -8,6 +8,11 @@ class Album extends React.Component {
     songs: [],
   };
 
+  // const Album =()=>{
+
+  //   const [album, setAlbum] = useState({})
+  //   const [songs, setSongs] = useState([])
+
   componentDidMount = async () => {
     let albumId = this.props.match.params.id;
 
